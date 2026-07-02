@@ -66,38 +66,49 @@
         }
     });
 
-    // ---- Contact Form Handler ----
+    // ---- Contact Form Handler (UPDATED - Works with Formspree) ----
     const contactForm = document.getElementById('contactForm');
     const formStatus = document.getElementById('formStatus');
+    const submitBtn = document.getElementById('submitBtn');
 
     if (contactForm) {
         contactForm.addEventListener('submit', function (e) {
-            e.preventDefault();
-
+            // Get form values for validation
             const name = document.getElementById('name').value.trim();
             const email = document.getElementById('email').value.trim();
             const message = document.getElementById('message').value.trim();
-
+            
+            // Validate required fields
             if (!name || !email || !message) {
+                e.preventDefault(); // Only prevent submission if validation fails
                 formStatus.className = 'form-status error';
                 formStatus.textContent = '⚠️ Please fill in all required fields.';
                 return;
             }
-
+            
             if (!email.includes('@') || !email.includes('.')) {
+                e.preventDefault(); // Only prevent submission if validation fails
                 formStatus.className = 'form-status error';
                 formStatus.textContent = '⚠️ Please enter a valid email address.';
                 return;
             }
-
-            formStatus.className = 'form-status success';
-            formStatus.textContent = '✅ Thank you! Your message has been sent. We\'ll get back to you soon.';
-            contactForm.reset();
-
-            setTimeout(() => {
-                formStatus.className = 'form-status';
-                formStatus.textContent = '';
-            }, 5000);
+            
+            // If validation passes, DO NOT use e.preventDefault()
+            // Let the form submit naturally to Formspree!
+            
+            // Show sending status
+            formStatus.className = 'form-status sending';
+            formStatus.textContent = '⏳ Sending your message...';
+            
+            // Disable button to prevent double submission
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            }
+            
+            // The form will now submit to Formspree automatically
+            // You'll be redirected to Formspree's thank you page
+            // No need to reset or show success message here - Formspree handles that
         });
     }
 

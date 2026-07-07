@@ -184,7 +184,7 @@ body {
 
 /* ---------- LOGO IMAGE ---------- */
 .logo-img {
-    height: 32px;
+    height: 42px;
     width: auto;
     border-radius: 6px;
     display: block;
@@ -1084,7 +1084,7 @@ body {
 }
 
 /* ============================================================
-   MENU IMAGE SLIDESHOW STYLES (MORE AGGRESSIVE SIZE REDUCTION)
+   MENU IMAGE SLIDESHOW STYLES
    ============================================================ */
 
 .menu-section {
@@ -1329,7 +1329,7 @@ body {
     }
 
     .logo-img {
-        height: 28px;
+        height: 34px;
     }
 
     .nav-links {
@@ -1502,7 +1502,7 @@ body {
     }
 
     .logo-img {
-        height: 24px;
+        height: 28px;
     }
 
     .nav-links {

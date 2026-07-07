@@ -125,7 +125,7 @@
     });
 
     // ============================================================
-    // MENU CAROUSEL / SLIDESHOW
+    // MENU CAROUSEL / SLIDESHOW (AUTO-PLAY EVERY 5 SECONDS)
     // ============================================================
     const slides = document.querySelectorAll('.menu-slide');
     const dotsContainer = document.getElementById('carouselDots');
@@ -177,7 +177,7 @@
             if (autoPlayInterval) {
                 clearInterval(autoPlayInterval);
             }
-            autoPlayInterval = setInterval(nextSlide, 8000); // Change slide every 8 seconds
+            autoPlayInterval = setInterval(nextSlide, 5000); // Change slide every 5 seconds
         }
 
         // Event listeners for buttons

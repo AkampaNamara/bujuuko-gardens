@@ -177,15 +177,13 @@ body {
     display: block;
     margin-top: -6px;
 }
-
 /* ---------- LOGO IMAGE ---------- */
 .logo-img {
-    height: 50px;
+    height: 35px;
     width: auto;
-    border-radius: 8px;
+    border-radius: 6px;
     display: block;
 }
-
 .nav-links {
     display: flex;
     gap: 2.2rem;

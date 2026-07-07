@@ -1189,6 +1189,43 @@ body {
 }
 
 /* ============================================================
+   MAP LINK STYLES - CLICKABLE GOOGLE MAPS
+   ============================================================ */
+
+.map-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+
+.map-link:hover {
+    transform: scale(1.01);
+}
+
+.map-link:hover .map-click-hint {
+    color: var(--coffee-dark);
+    background: var(--coffee-cream);
+}
+
+.map-click-hint {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.5rem 1.5rem;
+    background: var(--warm-white);
+    border-radius: 60px;
+    font-size: 0.9rem;
+    color: var(--coffee-light);
+    transition: 0.3s ease;
+    border: 1px solid var(--coffee-cream);
+}
+
+.map-click-hint i {
+    margin-right: 0.5rem;
+}
+
+/* ============================================================
    RESPONSIVE STYLES
    ============================================================ */
 

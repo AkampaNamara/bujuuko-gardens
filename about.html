@@ -17,7 +17,7 @@
         <!-- ===== HEADER / NAV ===== -->
         <header class="navbar">
             <div class="logo">
-                <a href="home.html" style="text-decoration: none; display: flex; align-items: center; gap: 0.8rem;">
+                <a href="index.html" style="text-decoration: none; display: flex; align-items: center; gap: 0.8rem;">
                     <img src="logo.jpeg" alt="Bujuuko Miracle Park Logo" class="logo-img" />
                     <div>
                         <h1>Bujuuko Miracle Park & Gardens</h1>
@@ -25,16 +25,28 @@
                     </div>
                 </a>
             </div>
-            <div class="nav-links">
-                <a href="home.html">Home</a>
-                <a href="menu.html">Menu</a>
-                <a href="about.html" class="active">About</a>
-                <a href="contact.html">Contact</a>
-                <a href="cart.html" class="cart-link">
-                    <i class="fas fa-shopping-cart"></i>
-                    <span class="cart-count" id="cartCount">0</span>
+            <nav class="vertical-nav">
+                <a href="index.html" class="nav-item">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
                 </a>
-            </div>
+                <a href="menu.html" class="nav-item">
+                    <i class="fas fa-utensils"></i>
+                    <span>Menu</span>
+                </a>
+                <a href="about.html" class="nav-item active">
+                    <i class="fas fa-info-circle"></i>
+                    <span>About</span>
+                </a>
+                <a href="contact.html" class="nav-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>Contact</span>
+                </a>
+                <a href="cart.html" class="nav-item cart-link">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>Cart <span class="cart-count" id="cartCount">0</span></span>
+                </a>
+            </nav>
         </header>
 
         <!-- ===== SLOGAN BANNER ===== -->

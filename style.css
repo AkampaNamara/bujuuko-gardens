@@ -150,15 +150,13 @@ body {
     color: var(--coffee-gold);
 }
 
-/* ---------- HEADER / NAV ---------- */
+/* ---------- HEADER / NAV LAYOUT ---------- */
 .navbar {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+    justify-content: center;
+    align-items: center;
     padding: 0.6rem 0 0.4rem;
-    flex-wrap: wrap;
     border-bottom: 3px solid var(--coffee-cream);
-    gap: 1rem;
 }
 
 .logo a {
@@ -191,46 +189,60 @@ body {
     display: block;
 }
 
+/* ---------- NAVIGATION WRAPPER - CENTERED VERTICAL NAV ---------- */
+.nav-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem 0;
+}
+
 /* ---------- VERTICAL NAVIGATION ---------- */
 .vertical-nav {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.8rem;
     background: var(--warm-white);
-    padding: 0.8rem;
-    border-radius: 16px;
-    border: 1px solid var(--coffee-cream);
-    min-width: 160px;
+    padding: 1.5rem 2rem;
+    border-radius: 20px;
+    border: 2px solid var(--coffee-cream);
+    box-shadow: 0 8px 25px rgba(61, 43, 31, 0.08);
+    min-width: 280px;
+    width: 100%;
+    max-width: 400px;
 }
 
 .vertical-nav .nav-item {
     display: flex;
     align-items: center;
-    gap: 0.8rem;
-    padding: 0.6rem 1rem;
-    border-radius: 12px;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    border-radius: 60px;
     text-decoration: none;
     color: var(--coffee-dark);
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 500;
     transition: 0.3s ease;
-    border: 1px solid transparent;
+    border: 2px solid transparent;
+    background: var(--off-white);
 }
 
 .vertical-nav .nav-item:hover {
     background: var(--coffee-cream);
     border-color: var(--coffee-gold);
+    transform: translateX(5px);
 }
 
 .vertical-nav .nav-item.active {
     background: var(--coffee-dark);
     color: var(--off-white);
     border-color: var(--coffee-dark);
+    box-shadow: 0 4px 15px rgba(61, 43, 31, 0.2);
 }
 
 .vertical-nav .nav-item i {
-    font-size: 1.2rem;
-    width: 24px;
+    font-size: 1.4rem;
+    width: 30px;
     text-align: center;
     color: var(--coffee-gold);
 }
@@ -242,15 +254,15 @@ body {
 .vertical-nav .nav-item .cart-count {
     background: var(--coffee-gold);
     color: var(--coffee-dark);
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     font-weight: 700;
-    padding: 0.1rem 0.5rem;
+    padding: 0.1rem 0.6rem;
     border-radius: 50%;
-    min-width: 20px;
+    min-width: 24px;
     text-align: center;
-    line-height: 1.4;
+    line-height: 1.5;
     display: inline-block;
-    margin-left: 0.2rem;
+    margin-left: 0.3rem;
 }
 
 .vertical-nav .nav-item.active .cart-count {
@@ -258,10 +270,36 @@ body {
     color: var(--coffee-dark);
 }
 
+/* ---------- FLOATING WHATSAPP ICON ---------- */
+.floating-whatsapp {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #25D366;
+    color: #fff;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.2rem;
+    text-decoration: none;
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+    transition: 0.3s ease;
+    z-index: 1000;
+}
+
+.floating-whatsapp:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 35px rgba(37, 211, 102, 0.5);
+    color: #fff;
+}
+
 /* ---------- CART TOAST NOTIFICATION ---------- */
 .cart-toast {
     position: fixed;
-    bottom: 30px;
+    bottom: 100px;
     right: 30px;
     background: var(--coffee-dark);
     color: var(--off-white);
@@ -1628,40 +1666,6 @@ body {
 }
 
 /* ============================================================
-   WHATSAPP CONTACT BUTTON (Contact Page)
-   ============================================================ */
-
-.whatsapp-contact {
-    margin: 1.2rem 0;
-}
-
-.whatsapp-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.8rem;
-    padding: 0.8rem 1.8rem;
-    background: #25D366;
-    color: #fff;
-    border-radius: 60px;
-    text-decoration: none;
-    font-size: 1rem;
-    font-weight: 500;
-    transition: 0.3s ease;
-    width: 100%;
-    justify-content: center;
-}
-
-.whatsapp-btn:hover {
-    transform: scale(1.02);
-    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
-    color: #fff;
-}
-
-.whatsapp-btn i {
-    font-size: 1.5rem;
-}
-
-/* ============================================================
    RESPONSIVE STYLES
    ============================================================ */
 
@@ -1689,6 +1693,22 @@ body {
 }
 
 @media (max-width: 768px) {
+    .vertical-nav {
+        min-width: 220px;
+        padding: 1.2rem 1.5rem;
+        max-width: 90%;
+    }
+
+    .vertical-nav .nav-item {
+        font-size: 1rem;
+        padding: 0.8rem 1.2rem;
+    }
+
+    .vertical-nav .nav-item i {
+        font-size: 1.2rem;
+        width: 26px;
+    }
+
     .menu-grid {
         grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
         gap: 1rem;
@@ -1761,13 +1781,21 @@ body {
         font-size: 0.75rem;
         padding: 0.3rem 0.8rem;
     }
+
+    .floating-whatsapp {
+        width: 50px;
+        height: 50px;
+        font-size: 1.8rem;
+        bottom: 20px;
+        right: 20px;
+    }
 }
 
 @media (max-width: 650px) {
     .navbar {
         flex-direction: column;
-        align-items: stretch;
-        gap: 0.6rem;
+        align-items: center;
+        gap: 0.4rem;
         padding: 0.5rem 0 0.3rem;
     }
 
@@ -1786,29 +1814,6 @@ body {
 
     .logo-img {
         height: 34px;
-    }
-
-    .vertical-nav {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        min-width: unset;
-        padding: 0.5rem;
-        gap: 0.3rem;
-        border-radius: 12px;
-    }
-
-    .vertical-nav .nav-item {
-        font-size: 0.85rem;
-        padding: 0.4rem 0.7rem;
-        gap: 0.4rem;
-        flex: 0 1 auto;
-        border-radius: 8px;
-    }
-
-    .vertical-nav .nav-item i {
-        font-size: 1rem;
-        width: 20px;
     }
 
     .hero-text h2 {
@@ -1951,6 +1956,30 @@ body {
         justify-content: center;
         font-size: 0.85rem;
     }
+
+    .vertical-nav {
+        min-width: 200px;
+        padding: 1rem 1.2rem;
+        max-width: 95%;
+    }
+
+    .vertical-nav .nav-item {
+        font-size: 0.95rem;
+        padding: 0.7rem 1rem;
+    }
+
+    .vertical-nav .nav-item i {
+        font-size: 1.1rem;
+        width: 24px;
+    }
+
+    .floating-whatsapp {
+        width: 45px;
+        height: 45px;
+        font-size: 1.6rem;
+        bottom: 15px;
+        right: 15px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1974,17 +2003,6 @@ body {
 
     .logo-img {
         height: 28px;
-    }
-
-    .vertical-nav .nav-item {
-        font-size: 0.75rem;
-        padding: 0.3rem 0.5rem;
-        gap: 0.3rem;
-    }
-
-    .vertical-nav .nav-item i {
-        font-size: 0.85rem;
-        width: 18px;
     }
 
     .hero-text h2 {
@@ -2174,12 +2192,38 @@ body {
         height: 50px;
     }
 
-    .whatsapp-btn {
-        font-size: 0.85rem;
-        padding: 0.6rem 1rem;
+    .vertical-nav {
+        min-width: 180px;
+        padding: 0.8rem 1rem;
+        border-radius: 16px;
+        max-width: 100%;
     }
 
-    .whatsapp-btn i {
-        font-size: 1.2rem;
+    .vertical-nav .nav-item {
+        font-size: 0.85rem;
+        padding: 0.6rem 0.8rem;
+        gap: 0.6rem;
+        border-radius: 40px;
+    }
+
+    .vertical-nav .nav-item i {
+        font-size: 1rem;
+        width: 22px;
+    }
+
+    .floating-whatsapp {
+        width: 40px;
+        height: 40px;
+        font-size: 1.4rem;
+        bottom: 12px;
+        right: 12px;
+    }
+
+    .cart-toast {
+        bottom: 70px;
+        right: 15px;
+        font-size: 0.8rem;
+        padding: 0.6rem 1rem;
+        max-width: 200px;
     }
 }

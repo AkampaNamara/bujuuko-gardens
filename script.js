@@ -1,5 +1,5 @@
 // ============================================================
-//  BUJUUKO MIRACLE PARK & GARDENS - COMPLETE JAVASCRIPT
+//  MIRACLE PARK GARDENS & HOTEL BUJUUKO - COMPLETE JAVASCRIPT
 //  Pages: Home | About | Contact | Menu | Cart
 // ============================================================
 
@@ -8,9 +8,9 @@
     const msgEl = document.getElementById('dynamic-greeting');
     if (msgEl) {
         const messages = [
-            '📍 Bujuuko Miracle Park',
+            '📍 Miracle Park · Bujuuko',
             '🚗 1.5km from Bujuuko town off Mityana road',
-            '🌳 Relax, Celebrate and Create Memories',
+            '🌳 Your Perfect Escape for Relaxation, Adventure, and Memorable Celebrations',
             '📞 Book now: +256757576806 / +256782230255',
         ];
         let index = 0;
@@ -216,7 +216,7 @@
 
     function getCart() {
         try {
-            const stored = localStorage.getItem('bujukoCart');
+            const stored = localStorage.getItem('miracleParkCart');
             return stored ? JSON.parse(stored) : [];
         } catch {
             return [];
@@ -224,7 +224,7 @@
     }
 
     function saveCart() {
-        localStorage.setItem('bujukoCart', JSON.stringify(cart));
+        localStorage.setItem('miracleParkCart', JSON.stringify(cart));
         updateCartCount();
     }
 
@@ -439,13 +439,13 @@
         cart = getCart();
         if (cart.length === 0) return;
         
-        let message = '🍽️ *New Order from Bujuuko Miracle Park!*%0A%0A';
+        let message = '🍽️ *New Order from Miracle Park Gardens & Hotel Bujuuko!*%0A%0A';
         message += '*Order Details:*%0A';
         cart.forEach(item => {
             message += `${item.name} x${item.quantity} = ${(item.price * item.quantity).toLocaleString()}/=%0A`;
         });
         message += `%0A*Total: UGX ${getTotal().toLocaleString()}*%0A%0A`;
-        message += 'Thank you for ordering from Bujuuko Miracle Park & Gardens! 🌿';
+        message += 'Thank you for ordering from Miracle Park Gardens & Hotel Bujuuko! 🌿';
         
         const phone = '+256757576806';
         const url = `https://wa.me/${phone}?text=${message}`;
@@ -463,14 +463,14 @@
         cart = getCart();
         if (cart.length === 0) return;
         
-        let subject = 'New Order from Bujuuko Miracle Park';
-        let body = 'New Order from Bujuuko Miracle Park & Gardens!\n\n';
+        let subject = 'New Order from Miracle Park Gardens & Hotel Bujuuko';
+        let body = 'New Order from Miracle Park Gardens & Hotel Bujuuko!\n\n';
         body += 'Order Details:\n';
         cart.forEach(item => {
             body += `${item.name} x${item.quantity} = UGX ${(item.price * item.quantity).toLocaleString()}\n`;
         });
         body += `\nTotal: UGX ${getTotal().toLocaleString()}\n\n`;
-        body += 'Thank you for ordering from Bujuuko Miracle Park & Gardens! 🌿';
+        body += 'Thank you for ordering from Miracle Park Gardens & Hotel Bujuuko! 🌿';
         
         const email = 'miracleparkhotel@gmail.com';
         const url = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
@@ -562,9 +562,9 @@
     window.placeOrder = placeOrder;
     window.placeOrderEmail = placeOrderEmail;
 
-    console.log('🌿 Bujuuko Miracle Park & Gardens · Complete Website');
+    console.log('🌿 Miracle Park Gardens & Hotel Bujuuko · Complete Website');
     console.log('📄 Pages: Home | Menu | About | Contact | Cart');
     console.log('📍 1.5km from Bujuuko town off Mityana road');
     console.log('📞 Bookings: +256757576806 / +256782230255');
-    console.log('✨ Relax, Celebrate and Create Memories');
+    console.log('✨ Your Perfect Escape for Relaxation, Adventure, and Memorable Celebrations');
 })();

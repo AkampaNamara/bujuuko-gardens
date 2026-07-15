@@ -103,7 +103,7 @@
     // ---- Highlight current page in nav ----
     document.addEventListener('DOMContentLoaded', function () {
         const currentPath = window.location.pathname.split('/').pop() || 'index.html';
-        const navItems = document.querySelectorAll('.vertical-nav .nav-item');
+        const navItems = document.querySelectorAll('.vertical-nav-bottom .nav-item-bottom');
         navItems.forEach(link => {
             const href = link.getAttribute('href');
             if (href === currentPath) {

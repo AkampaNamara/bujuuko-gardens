@@ -2,11 +2,14 @@
   "name": "Miracle Park Gardens & Hotel Bujuuko",
   "short_name": "Miracle Park",
   "description": "Your Perfect Escape for Relaxation, Adventure, and Memorable Celebrations",
-  "start_url": "/bujuuko-gardens/index.html",
+  "start_url": "https://bujuukogardens.com/",
   "display": "standalone",
   "background_color": "#3D2B1F",
   "theme_color": "#3D2B1F",
   "orientation": "portrait",
+  "categories": ["travel", "food", "hotel", "lifestyle"],
+  "lang": "en",
+  "dir": "ltr",
   "icons": [
     {
       "src": "logo-192.png",
@@ -19,6 +22,43 @@
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "overview.jpeg",
+      "sizes": "1280x720",
+      "type": "image/jpeg",
+      "form_factor": "wide",
+      "label": "Welcome to Miracle Park Gardens & Hotel Bujuuko"
+    }
+  ],
+  "prefer_related_applications": false,
+  "related_applications": [],
+  "shortcuts": [
+    {
+      "name": "View Menu",
+      "short_name": "Menu",
+      "description": "Browse our delicious menu",
+      "url": "https://bujuukogardens.com/menu.html",
+      "icons": [
+        {
+          "src": "logo-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Contact Us",
+      "short_name": "Contact",
+      "description": "Get in touch with us",
+      "url": "https://bujuukogardens.com/contact.html"
+    },
+    {
+      "name": "About Us",
+      "short_name": "About",
+      "description": "Learn about Miracle Park",
+      "url": "https://bujuukogardens.com/about.html"
     }
   ]
 }

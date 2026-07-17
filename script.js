@@ -573,6 +573,103 @@
         resetAutoPlay();
     }
 
+    // ============================================================
+    // PWA INSTALL BANNER - Add to Home Screen
+    // ============================================================
+
+    let deferredPrompt;
+    const installBanner = document.getElementById('installBanner');
+    const installBtn = document.getElementById('installBtn');
+    const closeBanner = document.getElementById('closeInstallBanner');
+
+    // Check if the app is already installed
+    const isAppInstalled = window.matchMedia('(display-mode: standalone)').matches;
+
+    // If already installed, hide the banner
+    if (isAppInstalled) {
+        if (installBanner) installBanner.style.display = 'none';
+    }
+
+    // Listen for the beforeinstallprompt event
+    window.addEventListener('beforeinstallprompt', function(e) {
+        // Prevent Chrome 67 and earlier from automatically showing the prompt
+        e.preventDefault();
+        // Stash the event so it can be triggered later
+        deferredPrompt = e;
+        
+        // Show the custom install banner
+        if (installBanner && !isAppInstalled) {
+            installBanner.style.display = 'block';
+        }
+    });
+
+    // Handle install button click
+    if (installBtn) {
+        installBtn.addEventListener('click', function() {
+            if (deferredPrompt) {
+                // Show the native install prompt
+                deferredPrompt.prompt();
+                // Wait for the user to respond to the prompt
+                deferredPrompt.userChoice.then(function(choiceResult) {
+                    if (choiceResult.outcome === 'accepted') {
+                        console.log('User accepted the install prompt');
+                        installBanner.style.display = 'none';
+                    } else {
+                        console.log('User dismissed the install prompt');
+                    }
+                    deferredPrompt = null;
+                });
+            } else {
+                // Fallback for iOS or when prompt isn't available
+                showManualInstallInstructions();
+            }
+        });
+    }
+
+    // Handle close banner
+    if (closeBanner) {
+        closeBanner.addEventListener('click', function() {
+            installBanner.style.display = 'none';
+            localStorage.setItem('dismissedInstallBanner', 'true');
+        });
+    }
+
+    // Check if user dismissed the banner before
+    if (localStorage.getItem('dismissedInstallBanner') === 'true') {
+        if (installBanner) installBanner.style.display = 'none';
+    }
+
+    // iOS Fallback - show manual install instructions
+    function showManualInstallInstructions() {
+        const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+        if (isIOS) {
+            alert('To add Miracle Park to your Home Screen:\n\n1. Tap the Share button (square with arrow)\n2. Scroll down and tap "Add to Home Screen"');
+        } else {
+            alert('To add Miracle Park to your Home Screen:\n\n1. Tap the menu (three dots) in your browser\n2. Tap "Add to Home Screen" or "Install App"');
+        }
+    }
+
+    // Detect if the app was installed successfully
+    window.addEventListener('appinstalled', function() {
+        console.log('Miracle Park app was installed!');
+        if (installBanner) installBanner.style.display = 'none';
+    });
+
+    // If the banner is hidden but the app isn't installed, show it again later
+    const dismissed = localStorage.getItem('dismissedInstallBanner');
+    if (dismissed === 'true') {
+        const installDate = localStorage.getItem('installBannerDismissDate');
+        if (installDate) {
+            const daysSince = (Date.now() - parseInt(installDate)) / (1000 * 60 * 60 * 24);
+            if (daysSince > 30) {
+                localStorage.removeItem('dismissedInstallBanner');
+                localStorage.removeItem('installBannerDismissDate');
+            }
+        } else {
+            localStorage.setItem('installBannerDismissDate', Date.now().toString());
+        }
+    }
+
     // Expose functions globally for onclick
     window.addToCart = addToCart;
     window.removeFromCart = removeFromCart;

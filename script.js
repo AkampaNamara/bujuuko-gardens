@@ -65,7 +65,7 @@
         }
     });
 
-    // ---- Contact Form Handler (UPDATED - Works with Formspree) ----
+    // ---- Contact Form Handler ----
     const contactForm = document.getElementById('contactForm');
     const formStatus = document.getElementById('formStatus');
     const submitBtn = document.getElementById('submitBtn');
@@ -119,7 +119,7 @@
     });
 
     // ============================================================
-    // PWA INSTALL BANNER - UNIFIED WITH CLOSE (X) BUTTON
+    // PWA INSTALL BANNER
     // ============================================================
     function setupInstallBanner() {
         const banner = document.getElementById('installBanner');
@@ -127,31 +127,23 @@
         const notNowBtn = document.getElementById('notNowBtn');
         const installBtn = document.getElementById('installAppBtn');
         
-        // Check if app is already installed
         const isAppInstalled = window.matchMedia('(display-mode: standalone)').matches;
-        
-        // Check if user dismissed the banner in this session
         const bannerClosed = sessionStorage.getItem('mirakleBannerClosed') === 'true';
         
-        // If app is installed or banner was closed, hide it
         if (isAppInstalled || bannerClosed) {
             if (banner) banner.classList.add('hidden');
         }
         
-        // Store deferred prompt for install
         let deferredPrompt = null;
         
-        // Listen for beforeinstallprompt
         window.addEventListener('beforeinstallprompt', (e) => {
             e.preventDefault();
             deferredPrompt = e;
-            // Show banner if not hidden
             if (banner && !banner.classList.contains('hidden') && !isAppInstalled) {
                 banner.style.display = 'flex';
             }
         });
         
-        // Close banner function
         function hideBanner() {
             if (banner) {
                 banner.classList.add('hidden');
@@ -162,17 +154,14 @@
             } catch(e) {}
         }
         
-        // Close button (X)
         if (closeBtn) {
             closeBtn.addEventListener('click', hideBanner);
         }
         
-        // Not now button
         if (notNowBtn) {
             notNowBtn.addEventListener('click', hideBanner);
         }
         
-        // Install button
         if (installBtn) {
             installBtn.addEventListener('click', async () => {
                 if (deferredPrompt) {
@@ -186,7 +175,6 @@
                     }
                     deferredPrompt = null;
                 } else {
-                    // Fallback for iOS or browsers without prompt
                     const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
                     if (isIOS) {
                         alert('On iOS, tap the Share button and select "Add to Home Screen" to install this app.');
@@ -198,7 +186,6 @@
             });
         }
         
-        // App installed event
         window.addEventListener('appinstalled', () => {
             hideBanner();
             console.log('App installed successfully');
@@ -206,7 +193,7 @@
     }
 
     // ============================================================
-    // MENU DATA (UPDATED WITH ALL DISH PHOTOS)
+    // MENU DATA
     // ============================================================
     const menuItems = [
         // ----- Goat Dishes -----
@@ -296,7 +283,6 @@
         { id: 68, name: 'Avocado Juice', category: 'beverages', price: 10000, image: 'avocado-juice.jpeg', desc: 'Fresh avocado juice' },
         { id: 69, name: 'Banana Juice', category: 'beverages', price: 10000, image: 'banana-juice.jpeg', desc: 'Fresh banana juice' },
         { id: 70, name: 'Cocktails', category: 'beverages', price: 10000, image: 'cocktails.jpeg', desc: 'Special cocktails' },
-        // NEW JUICE ITEMS
         { id: 79, name: 'Orange Juice', category: 'beverages', price: 10000, image: 'orange-juice.jpeg', desc: 'Fresh orange juice' },
         { id: 80, name: 'Watermelon Juice', category: 'beverages', price: 10000, image: 'watermelon-juice.jpeg', desc: 'Fresh watermelon juice' },
 
@@ -398,7 +384,7 @@
     }
 
     // ============================================================
-    // RENDER FEATURED MENU (Homepage)
+    // RENDER FEATURED MENU
     // ============================================================
     function renderFeaturedMenu() {
         const container = document.getElementById('featuredMenu');
@@ -420,7 +406,7 @@
     }
 
     // ============================================================
-    // RENDER FULL MENU (Menu Page - No "All" Category)
+    // RENDER FULL MENU
     // ============================================================
     function renderFullMenu(category = 'goat') {
         const container = document.getElementById('fullMenu');
@@ -454,13 +440,12 @@
     }
 
     // ============================================================
-    // CATEGORY TABS (No "All" Button)
+    // CATEGORY TABS
     // ============================================================
     function setupCategoryTabs() {
         const tabs = document.querySelectorAll('.tab-btn');
         if (!tabs.length) return;
         
-        // Set default active tab to "goat"
         const defaultTab = document.querySelector('.tab-btn[data-category="goat"]');
         if (defaultTab) {
             defaultTab.classList.add('active');
@@ -506,7 +491,6 @@
             return;
         }
         
-        // Render cart items
         container.innerHTML = cart.map(item => `
             <div class="cart-item">
                 <img src="${item.image || 'garden1.jpeg'}" alt="${item.name}" class="cart-item-img" onerror="this.src='garden1.jpeg'" />
@@ -525,7 +509,6 @@
             </div>
         `).join('');
         
-        // Render summary
         const total = getTotal();
         const itemCount = cart.reduce((s, i) => s + i.quantity, 0);
         summary.innerHTML = `
@@ -542,59 +525,95 @@
     }
 
     // ============================================================
-    // PLACE ORDER (WhatsApp & Email)
+    // PLACE ORDER (WhatsApp) - FIXED
     // ============================================================
     function placeOrder() {
         cart = getCart();
-        if (cart.length === 0) return;
+        if (cart.length === 0) {
+            showToast('Your cart is empty!');
+            return;
+        }
         
+        // Build the order message
         let message = '🍽️ *New Order from Miracle Park Gardens & Hotel Bujuuko!*%0A%0A';
         message += '*Order Details:*%0A';
-        cart.forEach(item => {
-            message += `${item.name} x${item.quantity} = ${(item.price * item.quantity).toLocaleString()}/=%0A`;
+        message += '──────────────────%0A';
+        
+        cart.forEach((item, index) => {
+            message += `${index + 1}. ${item.name} x${item.quantity} = UGX ${(item.price * item.quantity).toLocaleString()}%0A`;
         });
-        message += `%0A*Total: UGX ${getTotal().toLocaleString()}*%0A%0A`;
+        
+        message += '──────────────────%0A';
+        message += `*Total: UGX ${getTotal().toLocaleString()}*%0A%0A`;
+        message += '📞 *Customer Details:*%0A';
+        message += 'Name: _______________%0A';
+        message += 'Phone: _______________%0A';
+        message += 'Delivery Location: _______________%0A%0A';
         message += 'Thank you for ordering from Miracle Park Gardens & Hotel Bujuuko! 🌿';
         
         const phone = '+256757576806';
         const url = `https://wa.me/${phone}?text=${message}`;
         
-        // Clear cart after placing order
-        cart = [];
-        saveCart();
-        renderCartPage();
-        updateCartCount();
-        
+        // Open WhatsApp
         window.open(url, '_blank');
+        
+        // Clear cart after opening WhatsApp
+        setTimeout(() => {
+            cart = [];
+            saveCart();
+            renderCartPage();
+            updateCartCount();
+            showToast('Order placed! Check WhatsApp to send.');
+        }, 500);
     }
 
+    // ============================================================
+    // PLACE ORDER (Email) - FIXED
+    // ============================================================
     function placeOrderEmail() {
         cart = getCart();
-        if (cart.length === 0) return;
+        if (cart.length === 0) {
+            showToast('Your cart is empty!');
+            return;
+        }
         
+        // Build the email subject and body
         let subject = 'New Order from Miracle Park Gardens & Hotel Bujuuko';
-        let body = 'New Order from Miracle Park Gardens & Hotel Bujuuko!\n\n';
+        
+        let body = '🍽️ New Order from Miracle Park Gardens & Hotel Bujuuko!\n\n';
         body += 'Order Details:\n';
-        cart.forEach(item => {
-            body += `${item.name} x${item.quantity} = UGX ${(item.price * item.quantity).toLocaleString()}\n`;
+        body += '──────────────────\n';
+        
+        cart.forEach((item, index) => {
+            body += `${index + 1}. ${item.name} x${item.quantity} = UGX ${(item.price * item.quantity).toLocaleString()}\n`;
         });
-        body += `\nTotal: UGX ${getTotal().toLocaleString()}\n\n`;
+        
+        body += '──────────────────\n';
+        body += `Total: UGX ${getTotal().toLocaleString()}\n\n`;
+        body += '📞 Customer Details:\n';
+        body += 'Name: _______________\n';
+        body += 'Phone: _______________\n';
+        body += 'Delivery Location: _______________\n\n';
         body += 'Thank you for ordering from Miracle Park Gardens & Hotel Bujuuko! 🌿';
         
         const email = 'miracleparkhotel@gmail.com';
         const url = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
         
-        // Clear cart after placing order
-        cart = [];
-        saveCart();
-        renderCartPage();
-        updateCartCount();
-        
+        // Open email
         window.open(url, '_blank');
+        
+        // Clear cart after opening email
+        setTimeout(() => {
+            cart = [];
+            saveCart();
+            renderCartPage();
+            updateCartCount();
+            showToast('Order placed! Check your email to send.');
+        }, 500);
     }
 
     // ============================================================
-    // MENU CAROUSEL / SLIDESHOW (AUTO-PLAY EVERY 5 SECONDS)
+    // MENU CAROUSEL
     // ============================================================
     const slides = document.querySelectorAll('.menu-slide');
     const dotsContainer = document.getElementById('carouselDots');
@@ -664,7 +683,7 @@
         resetAutoPlay();
     }
 
-    // Expose functions globally for onclick
+    // Expose functions globally
     window.addToCart = addToCart;
     window.removeFromCart = removeFromCart;
     window.updateQuantity = updateQuantity;

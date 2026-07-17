@@ -38,6 +38,235 @@ body {
     padding: 0 1.8rem;
 }
 
+/* ============================================================
+   UNIFIED INSTALL BANNER (BOTTOM FIXED POSITION)
+   ============================================================ */
+
+.install-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--coffee-dark);
+    color: var(--off-white);
+    padding: 14px 18px;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
+    z-index: 10000;
+    border-top: 4px solid var(--coffee-gold);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    animation: slideUpBanner 0.5s ease;
+    transition: all 0.3s ease;
+}
+
+.install-banner.hidden {
+    display: none;
+}
+
+@keyframes slideUpBanner {
+    0% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.banner-content {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1 1 240px;
+}
+
+.banner-icon {
+    background: var(--coffee-gold);
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--coffee-dark);
+    font-weight: 700;
+    font-size: 22px;
+    flex-shrink: 0;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.banner-text {
+    flex: 1;
+}
+
+.banner-text h4 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--off-white);
+    margin-bottom: 2px;
+}
+
+.banner-text p {
+    font-size: 0.8rem;
+    color: var(--coffee-cream);
+    margin: 2px 0;
+    line-height: 1.3;
+}
+
+.banner-text .publisher {
+    font-size: 0.7rem;
+    color: var(--coffee-cream);
+    background: rgba(255,255,255,0.1);
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 30px;
+    margin-top: 3px;
+}
+
+.banner-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 6px;
+    flex-wrap: wrap;
+}
+
+.btn-install {
+    background: var(--coffee-gold);
+    border: none;
+    color: var(--coffee-dark);
+    font-weight: 600;
+    padding: 10px 24px;
+    border-radius: 60px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background 0.15s;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    letter-spacing: 0.3px;
+}
+
+.btn-install:hover {
+    background: #d4b88a;
+    transform: translateY(-2px);
+}
+
+.btn-not-now {
+    background: transparent;
+    border: 2px solid var(--coffee-cream);
+    color: var(--coffee-cream);
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 60px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-not-now:hover {
+    background: rgba(255,255,255,0.1);
+    border-color: var(--off-white);
+    color: var(--off-white);
+}
+
+.banner-close {
+    background: transparent;
+    border: none;
+    font-size: 1.6rem;
+    line-height: 1;
+    color: var(--coffee-cream);
+    cursor: pointer;
+    padding: 0 6px;
+    font-weight: 300;
+    transition: 0.1s;
+    align-self: flex-start;
+    margin-top: -6px;
+}
+
+.banner-close:hover {
+    color: var(--off-white);
+    transform: scale(1.1);
+}
+
+/* Add padding to body to prevent content from being hidden behind the banner */
+body {
+    padding-bottom: 100px;
+}
+
+/* Responsive styles for banner */
+@media (max-width: 600px) {
+    .install-banner {
+        padding: 12px 14px;
+    }
+    .banner-content {
+        flex: 1 1 100%;
+    }
+    .banner-actions {
+        width: 100%;
+        justify-content: flex-start;
+        margin-top: 8px;
+    }
+    .btn-install {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+    }
+    .btn-not-now {
+        margin-left: auto;
+    }
+    .banner-close {
+        align-self: center;
+        margin-top: 0;
+    }
+    .banner-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
+    .banner-text h4 {
+        font-size: 0.85rem;
+    }
+    .banner-text p {
+        font-size: 0.7rem;
+    }
+    body {
+        padding-bottom: 140px;
+    }
+}
+
+@media (max-width: 400px) {
+    .install-banner {
+        padding: 10px 12px;
+    }
+    .banner-content {
+        gap: 8px;
+    }
+    .banner-icon {
+        width: 34px;
+        height: 34px;
+        font-size: 15px;
+    }
+    .banner-text h4 {
+        font-size: 0.75rem;
+    }
+    .banner-text p {
+        font-size: 0.65rem;
+    }
+    .btn-install {
+        font-size: 0.75rem;
+        padding: 6px 14px;
+    }
+    .btn-not-now {
+        font-size: 0.7rem;
+        padding: 4px 10px;
+    }
+    body {
+        padding-bottom: 130px;
+    }
+}
+
 /* ---------- SLOGAN BANNER ---------- */
 .slogan-banner {
     background: var(--coffee-dark);
@@ -621,6 +850,7 @@ body {
     border-top: 3px solid var(--coffee-cream);
     padding: 1.5rem 0 1.2rem;
     margin-top: 1.5rem;
+    margin-bottom: 1rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -726,117 +956,6 @@ body {
 .vertical-nav-bottom .nav-item-bottom.active .cart-count {
     background: var(--off-white);
     color: var(--coffee-dark);
-}
-
-/* ============================================================
-   PWA INSTALL BANNER STYLES
-   ============================================================ */
-
-.install-banner {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: var(--coffee-dark);
-    color: var(--off-white);
-    padding: 0.8rem 1rem;
-    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
-    z-index: 10000;
-    border-top: 3px solid var(--coffee-gold);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    animation: slideUpBanner 0.5s ease;
-}
-
-@keyframes slideUpBanner {
-    0% {
-        transform: translateY(100%);
-    }
-    100% {
-        transform: translateY(0);
-    }
-}
-
-.install-banner-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
-    gap: 1rem;
-}
-
-.install-banner-left {
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-}
-
-.install-banner-icon {
-    width: 48px;
-    height: 48px;
-    border-radius: 12px;
-    object-fit: cover;
-    border: 2px solid var(--coffee-gold);
-}
-
-.install-banner-left h3 {
-    font-size: 0.95rem;
-    font-weight: 600;
-    margin: 0;
-    color: var(--off-white);
-}
-
-.install-banner-left p {
-    font-size: 0.75rem;
-    opacity: 0.7;
-    margin: 0;
-    color: var(--off-white);
-}
-
-.install-banner-btn {
-    background: #25D366;
-    color: #fff;
-    border: none;
-    padding: 0.5rem 1.5rem;
-    border-radius: 60px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: 0.3s;
-    flex-shrink: 0;
-}
-
-.install-banner-btn:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
-}
-
-.install-banner-btn:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-    transform: none;
-}
-
-.install-banner-close {
-    position: absolute;
-    top: 8px;
-    right: 12px;
-    background: none;
-    border: none;
-    color: var(--off-white);
-    font-size: 1.5rem;
-    cursor: pointer;
-    opacity: 0.6;
-    transition: 0.3s;
-    padding: 0 0.3rem;
-}
-
-.install-banner-close:hover {
-    opacity: 1;
-    transform: scale(1.2);
 }
 
 /* ============================================================
@@ -2431,31 +2550,39 @@ body {
     }
 
     .install-banner {
-        padding: 0.6rem 0.8rem;
+        padding: 12px 14px;
     }
 
-    .install-banner-left h3 {
+    .banner-icon {
+        width: 36px;
+        height: 36px;
+        font-size: 16px;
+    }
+
+    .banner-text h4 {
         font-size: 0.8rem;
     }
 
-    .install-banner-left p {
-        font-size: 0.65rem;
+    .banner-text p {
+        font-size: 0.7rem;
     }
 
-    .install-banner-icon {
-        width: 36px;
-        height: 36px;
+    .btn-install {
+        font-size: 0.8rem;
+        padding: 8px 16px;
     }
 
-    .install-banner-btn {
-        font-size: 0.85rem;
-        padding: 0.4rem 1rem;
+    .btn-not-now {
+        font-size: 0.75rem;
+        padding: 6px 12px;
     }
 
-    .install-banner-close {
-        top: 4px;
-        right: 8px;
-        font-size: 1.2rem;
+    .banner-close {
+        font-size: 1.3rem;
+    }
+
+    body {
+        padding-bottom: 150px;
     }
 
     .delivery-message {
@@ -2475,15 +2602,39 @@ body {
 }
 
 @media (max-width: 400px) {
-    .install-banner-left {
-        gap: 0.4rem;
+    .install-banner {
+        padding: 10px 12px;
     }
 
-    .install-banner-left h3 {
+    .banner-content {
+        gap: 8px;
+    }
+
+    .banner-icon {
+        width: 30px;
+        height: 30px;
+        font-size: 13px;
+    }
+
+    .banner-text h4 {
         font-size: 0.7rem;
     }
 
-    .install-banner-left p {
-        display: none;
+    .banner-text p {
+        font-size: 0.6rem;
+    }
+
+    .btn-install {
+        font-size: 0.7rem;
+        padding: 5px 12px;
+    }
+
+    .btn-not-now {
+        font-size: 0.65rem;
+        padding: 4px 8px;
+    }
+
+    body {
+        padding-bottom: 140px;
     }
 }

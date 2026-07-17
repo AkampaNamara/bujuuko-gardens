@@ -15,6 +15,9 @@ const urlsToCache = [
   '/bujuuko-gardens/script.js',
   '/bujuuko-gardens/logo.jpeg',
   '/bujuuko-gardens/overview.jpeg',
+  '/bujuuko-gardens/logo-192.png',
+  '/bujuuko-gardens/logo-512.png',
+  '/bujuuko-gardens/manifest.json',
   'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css'
 ];
 
@@ -23,6 +26,7 @@ self.addEventListener('install', function(event) {
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then(function(cache) {
+        console.log('Service Worker: Caching assets');
         return cache.addAll(urlsToCache);
       })
   );

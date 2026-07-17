@@ -296,6 +296,9 @@
         { id: 68, name: 'Avocado Juice', category: 'beverages', price: 10000, image: 'avocado-juice.jpeg', desc: 'Fresh avocado juice' },
         { id: 69, name: 'Banana Juice', category: 'beverages', price: 10000, image: 'banana-juice.jpeg', desc: 'Fresh banana juice' },
         { id: 70, name: 'Cocktails', category: 'beverages', price: 10000, image: 'cocktails.jpeg', desc: 'Special cocktails' },
+        // NEW JUICE ITEMS
+        { id: 79, name: 'Orange Juice', category: 'beverages', price: 10000, image: 'orange-juice.jpeg', desc: 'Fresh orange juice' },
+        { id: 80, name: 'Watermelon Juice', category: 'beverages', price: 10000, image: 'watermelon-juice.jpeg', desc: 'Fresh watermelon juice' },
 
         // ----- Starters -----
         { id: 71, name: 'Fresh Garden Salad', category: 'starters', price: 20000, image: 'fresh-garden-salad.jpeg', desc: 'A mix of seasonal vegetables' },

@@ -118,95 +118,106 @@
     });
 
     // ============================================================
-    // MENU DATA
+    // MENU DATA (UPDATED WITH ALL DISH PHOTOS)
     // ============================================================
     const menuItems = [
-        // Goat Dishes
-        { id: 1, name: 'Pan Fried Goat', category: 'goat', price: 40000, image: 'menu-goat-dishes.jpeg', desc: 'Well tendered goat cubes with vegetables & salad' },
-        { id: 2, name: 'Honey/BBQ Sauce Goat', category: 'goat', price: 40000, image: 'menu-goat-dishes.jpeg', desc: 'Grilled goat cubes in sweet sauce with salad' },
-        { id: 3, name: 'Goat Ribs', category: 'goat', price: 40000, image: 'menu-goat-dishes.jpeg', desc: 'Seasoned ribs grilled to tender in sweet sauce' },
-        { id: 4, name: 'Whole Goat Rib Cages', category: 'goat', price: 0, image: 'menu-goat-dishes.jpeg', desc: '3.5kg goat ribs, marinated & grilled to tender' },
-        // Beef Dishes
-        { id: 5, name: 'Pan Fried Beef', category: 'beef', price: 35000, image: 'menu-beef-dishes.jpeg', desc: 'Tender beef cubes in mixed vegetable soup' },
-        { id: 6, name: 'Beef Skewers', category: 'beef', price: 30000, image: 'menu-beef-dishes.jpeg', desc: 'Beef cubes on stick with veggies' },
-        { id: 7, name: 'Grilled Beef Steak', category: 'beef', price: 40000, image: 'menu-beef-dishes.jpeg', desc: 'Well marinated beef steak grilled to perfection' },
-        { id: 8, name: 'Tender Liver', category: 'beef', price: 40000, image: 'menu-beef-dishes.jpeg', desc: 'Well seasoned liver cubes with fresh vegetables' },
-        // Chicken Dishes
-        { id: 9, name: 'Grilled Whole Chicken', category: 'chicken', price: 100000, image: 'menu-chicken-dishes.jpeg', desc: 'Whole chicken grilled to perfection' },
-        { id: 10, name: 'Half Whole Chicken', category: 'chicken', price: 50000, image: 'menu-chicken-dishes.jpeg', desc: 'Half chicken grilled to perfection' },
-        { id: 11, name: 'Quarter Chicken', category: 'chicken', price: 30000, image: 'menu-chicken-dishes.jpeg', desc: 'Quarter chicken grilled or fried' },
-        { id: 12, name: 'Pan-fried Chicken', category: 'chicken', price: 30000, image: 'menu-chicken-dishes.jpeg', desc: 'Pan-fried chicken with vegetables' },
-        { id: 13, name: 'Chicken Nuggets', category: 'chicken', price: 30000, image: 'menu-chicken-dishes.jpeg', desc: 'Crispy chicken nuggets' },
-        { id: 14, name: 'Chicken Skewer', category: 'chicken', price: 30000, image: 'menu-chicken-dishes.jpeg', desc: 'Chicken cubes on stick with veggies' },
-        { id: 15, name: 'Chicken Fried Rice', category: 'chicken', price: 30000, image: 'menu-chicken-dishes.jpeg', desc: 'Chicken fried rice with vegetables' },
-        { id: 16, name: 'Chicken Filled Rice', category: 'chicken', price: 0, image: 'menu-chicken-dishes.jpeg', desc: 'Chicken filled rice with vegetables & gravy' },
-        // Fish Dishes
-        { id: 17, name: 'Fried Whole Fish', category: 'fish', price: 0, image: 'menu-fish-dishes.jpeg', desc: 'Whole fish marinated & deep-fried' },
-        { id: 18, name: 'Grilled Fish Fillet', category: 'fish', price: 0, image: 'menu-fish-dishes.jpeg', desc: 'Fish fillet grilled or deep-fried' },
-        { id: 19, name: 'Fish Fingers', category: 'fish', price: 0, image: 'menu-fish-dishes.jpeg', desc: 'Fish fillet strips, bread crumb fried' },
-        { id: 20, name: 'Special Kibecos', category: 'fish', price: 0, image: 'menu-fish-dishes.jpeg', desc: 'Whole fish tilapia with veggies & matooke' },
-        // Curry & Pork
-        { id: 21, name: 'Chicken Curry', category: 'curry', price: 35000, image: 'menu-curry.jpeg', desc: 'Chicken fillet cubes in blended curry sauce' },
-        { id: 22, name: 'Fish Curry', category: 'curry', price: 35000, image: 'menu-curry.jpeg', desc: 'Fish fillet cubes in tasty curry sauce' },
-        { id: 23, name: 'Vegetable Curry', category: 'curry', price: 30000, image: 'menu-curry.jpeg', desc: 'Mixture of steamed vegetables in curry sauce' },
-        { id: 24, name: 'Chicken Tikka Masala', category: 'curry', price: 40000, image: 'menu-curry.jpeg', desc: 'Chicken cubes in tikka masala sauce' },
-        { id: 25, name: 'Pan Fried Pork', category: 'curry', price: 50000, image: 'menu-curry.jpeg', desc: 'Pan fried pork chops' },
-        { id: 26, name: 'Pork Chops', category: 'curry', price: 50000, image: 'menu-curry.jpeg', desc: 'Grilled pork chops' },
-        { id: 27, name: 'Pork Ribs', category: 'curry', price: 50000, image: 'menu-curry.jpeg', desc: 'Seasoned pork ribs' },
-        // Fast Food
-        { id: 28, name: 'Chicken Burger', category: 'fastfood', price: 35000, image: 'menu-fast-food.jpeg', desc: 'Chicken burger with lettuce & sauce' },
-        { id: 29, name: 'Beef Burger', category: 'fastfood', price: 35000, image: 'menu-fast-food.jpeg', desc: 'Beef burger with lettuce & sauce' },
-        { id: 30, name: 'Chapati', category: 'fastfood', price: 3000, image: 'menu-fast-food.jpeg', desc: 'Plain chapati' },
-        { id: 31, name: 'Rolex', category: 'fastfood', price: 5000, image: 'menu-fast-food.jpeg', desc: 'Chapati with eggs and vegetables' },
-        { id: 32, name: 'Plain Chips', category: 'fastfood', price: 10000, image: 'menu-fast-food.jpeg', desc: 'Freshly fried chips' },
-        { id: 33, name: 'Chaps', category: 'fastfood', price: 8000, image: 'menu-fast-food.jpeg', desc: 'Chapatis with sauce' },
-        { id: 34, name: 'Kebabs', category: 'fastfood', price: 8000, image: 'menu-fast-food.jpeg', desc: 'Grilled beef kebabs' },
-        { id: 35, name: 'Beef Sausage (Pair)', category: 'fastfood', price: 8000, image: 'menu-fast-food.jpeg', desc: 'Pair of beef sausages' },
-        { id: 36, name: 'Beef Samosas (3)', category: 'fastfood', price: 8000, image: 'menu-fast-food.jpeg', desc: '3 beef samosas' },
-        { id: 37, name: 'Chicken Wing', category: 'fastfood', price: 20000, image: 'menu-fast-food.jpeg', desc: 'Grilled chicken wings' },
-        { id: 38, name: 'Chicken Chips', category: 'fastfood', price: 30000, image: 'menu-fast-food.jpeg', desc: 'Chicken with chips' },
-        // Pizza
-        { id: 39, name: 'Chicken Pizza (Large)', category: 'pizza', price: 40000, image: 'menu-pizza.jpeg', desc: 'Large chicken pizza' },
-        { id: 40, name: 'Chicken Pizza (Small)', category: 'pizza', price: 25000, image: 'menu-pizza.jpeg', desc: 'Small chicken pizza' },
-        { id: 41, name: 'Beef Pizza (Large)', category: 'pizza', price: 40000, image: 'menu-pizza.jpeg', desc: 'Large beef pizza' },
-        { id: 42, name: 'Beef Pizza (Small)', category: 'pizza', price: 25000, image: 'menu-pizza.jpeg', desc: 'Small beef pizza' },
-        { id: 43, name: 'Vegetable Pizza (Large)', category: 'pizza', price: 35000, image: 'menu-pizza.jpeg', desc: 'Large vegetable pizza' },
-        { id: 44, name: 'Vegetable Pizza (Small)', category: 'pizza', price: 25000, image: 'menu-pizza.jpeg', desc: 'Small vegetable pizza' },
-        { id: 45, name: 'Tomato & Cheese Pizza', category: 'pizza', price: 30000, image: 'menu-pizza.jpeg', desc: 'Tomato & cheese pizza' },
-        // Beverages - Tea & Coffee
-        { id: 46, name: 'African Tea', category: 'beverages', price: 10000, image: 'menu-beverages.jpeg', desc: 'Traditional African tea' },
-        { id: 47, name: 'Black Tea', category: 'beverages', price: 5000, image: 'menu-beverages.jpeg', desc: 'Plain black tea' },
-        { id: 48, name: 'Dawa Tea', category: 'beverages', price: 10000, image: 'menu-beverages.jpeg', desc: 'Spiced dawa tea' },
-        { id: 49, name: 'English Tea', category: 'beverages', price: 12000, image: 'menu-beverages.jpeg', desc: 'English breakfast tea' },
-        { id: 50, name: 'Plain Water', category: 'beverages', price: 5000, image: 'menu-beverages.jpeg', desc: 'Mineral water' },
-        { id: 51, name: 'African Coffee', category: 'beverages', price: 10000, image: 'menu-beverages.jpeg', desc: 'Traditional African coffee' },
-        { id: 52, name: 'Black Coffee', category: 'beverages', price: 5000, image: 'menu-beverages.jpeg', desc: 'Plain black coffee' },
-        { id: 53, name: 'Cappuccino (Single)', category: 'beverages', price: 8000, image: 'menu-beverages.jpeg', desc: 'Single cappuccino' },
-        { id: 54, name: 'Cappuccino (Double)', category: 'beverages', price: 10000, image: 'menu-beverages.jpeg', desc: 'Double cappuccino' },
-        { id: 55, name: 'Cafe Latte', category: 'beverages', price: 10000, image: 'menu-beverages.jpeg', desc: 'Cafe latte' },
-        { id: 56, name: 'Espresso (Single)', category: 'beverages', price: 6000, image: 'menu-beverages.jpeg', desc: 'Single espresso' },
-        { id: 57, name: 'Espresso (Double)', category: 'beverages', price: 7000, image: 'menu-beverages.jpeg', desc: 'Double espresso' },
-        // Beverages - Soft Drinks & Juices
-        { id: 58, name: 'Soda', category: 'beverages', price: 3000, image: 'menu-beverages.jpeg', desc: 'Soft drink' },
-        { id: 59, name: 'Water', category: 'beverages', price: 2000, image: 'menu-beverages.jpeg', desc: 'Bottled water' },
-        { id: 60, name: 'Passion Fruit Juice', category: 'beverages', price: 10000, image: 'menu-beverages.jpeg', desc: 'Fresh passion fruit juice' },
-        { id: 61, name: 'Melon Juice', category: 'beverages', price: 10000, image: 'menu-beverages.jpeg', desc: 'Fresh melon juice' },
-        { id: 62, name: 'Pineapple Juice', category: 'beverages', price: 10000, image: 'menu-beverages.jpeg', desc: 'Fresh pineapple juice' },
-        { id: 63, name: 'Lemon Juice', category: 'beverages', price: 12000, image: 'menu-beverages.jpeg', desc: 'Fresh lemon juice' },
-        { id: 64, name: 'Mango Juice', category: 'beverages', price: 10000, image: 'menu-beverages.jpeg', desc: 'Fresh mango juice' },
-        { id: 65, name: 'Red Juice', category: 'beverages', price: 15000, image: 'menu-beverages.jpeg', desc: 'Special red juice' },
-        { id: 66, name: 'Avocado Juice', category: 'beverages', price: 10000, image: 'menu-beverages.jpeg', desc: 'Fresh avocado juice' },
-        { id: 67, name: 'Banana Juice', category: 'beverages', price: 10000, image: 'menu-beverages.jpeg', desc: 'Fresh banana juice' },
-        { id: 68, name: 'Cocktails', category: 'beverages', price: 10000, image: 'menu-beverages.jpeg', desc: 'Special cocktails' },
-        // Starters & Omelettes
-        { id: 69, name: 'Fresh Garden Salad', category: 'starters', price: 20000, image: 'menu-starters.jpeg', desc: 'Mix of seasonal vegetables' },
-        { id: 70, name: 'Chicken Caesar Salad', category: 'starters', price: 30000, image: 'menu-starters.jpeg', desc: 'Chicken breast cubes with Caesar dressing' },
-        { id: 71, name: 'Chicken & Fruit Salad', category: 'starters', price: 30000, image: 'menu-starters.jpeg', desc: 'Grilled chicken with fresh fruits' },
-        { id: 72, name: 'Spanish Omelette', category: 'starters', price: 8000, image: 'menu-starters.jpeg', desc: 'Spanish-style omelette' },
-        { id: 73, name: 'Scrambled Eggs', category: 'starters', price: 8000, image: 'menu-starters.jpeg', desc: 'Scrambled eggs' },
-        { id: 74, name: 'Plain Omelette', category: 'starters', price: 5000, image: 'menu-starters.jpeg', desc: 'Plain omelette' },
-        { id: 75, name: 'Boiled Eggs', category: 'starters', price: 5000, image: 'menu-starters.jpeg', desc: 'Boiled eggs' },
-        { id: 76, name: 'Fried Eggs', category: 'starters', price: 5000, image: 'menu-starters.jpeg', desc: 'Fried eggs' },
+        // ----- Goat Dishes -----
+        { id: 1, name: 'Pan Fried Goat', category: 'goat', price: 40000, image: 'pan-fried-goat.jpeg', desc: 'Well tendered goat cubes with vegetables & salad' },
+        { id: 2, name: 'Honey BBQ Sauce Goat', category: 'goat', price: 40000, image: 'honey-bbq-goat.jpeg', desc: 'Grilled goat cubes in sweet sauce with salad' },
+        { id: 3, name: 'Goat Ribs', category: 'goat', price: 40000, image: 'goat-ribs.jpeg', desc: 'Seasoned ribs grilled to tender in sweet sauce' },
+        { id: 4, name: 'Whole Goat Rib Cages', category: 'goat', price: 160000, image: 'whole-goat-rib-cages.jpeg', desc: '3.5kg goat ribs, marinated & grilled to tender' },
+
+        // ----- Beef Dishes -----
+        { id: 5, name: 'Pan Fried Beef', category: 'beef', price: 35000, image: 'pan-fried-beef.jpeg', desc: 'Tender beef cubes in mixed vegetable soup, served wet & tasty' },
+        { id: 6, name: 'Beef Skewers', category: 'beef', price: 30000, image: 'beef-skewers.jpeg', desc: 'Beef cubes on stick with veggies, well marinated wet & grilled' },
+        { id: 7, name: 'Grilled Beef Steak', category: 'beef', price: 40000, image: 'grilled-beef-steak.jpeg', desc: 'Well marinated beef steak grilled to perfection & served juicy' },
+        { id: 8, name: 'Tender Liver', category: 'beef', price: 40000, image: 'tender-liver.jpeg', desc: 'Well seasoned liver cubes or strips with fresh vegetables' },
+
+        // ----- Chicken Dishes -----
+        { id: 9, name: 'Grilled Whole Chicken', category: 'chicken', price: 100000, image: 'grilled-whole-chicken.jpeg', desc: 'Whole chicken grilled to perfection' },
+        { id: 10, name: 'Half Whole Chicken', category: 'chicken', price: 50000, image: 'half-whole-chicken.jpeg', desc: 'Half chicken grilled to perfection' },
+        { id: 11, name: 'Quarter Chicken', category: 'chicken', price: 30000, image: 'quarter-chicken.jpeg', desc: 'Quarter chicken grilled or fried' },
+        { id: 12, name: 'Pan Fried Chicken', category: 'chicken', price: 30000, image: 'pan-fried-chicken.jpeg', desc: 'Pan-fried chicken with vegetables' },
+        { id: 13, name: 'Chicken Nuggets', category: 'chicken', price: 30000, image: 'chicken-nuggets.jpeg', desc: 'Crispy chicken nuggets' },
+        { id: 14, name: 'Chicken Skewer', category: 'chicken', price: 30000, image: 'chicken-skewer.jpeg', desc: 'Chicken cubes on stick with veggies' },
+        { id: 15, name: 'Chicken Fried Rice', category: 'chicken', price: 30000, image: 'chicken-fried-rice.jpeg', desc: 'Chicken fried rice with vegetables' },
+        { id: 16, name: 'Plain Chicken', category: 'chicken', price: 25000, image: 'plain-chicken.jpeg', desc: 'Plain chicken served with salad' },
+
+        // ----- Fish Dishes -----
+        { id: 17, name: 'Fried Whole Fish', category: 'fish', price: 50000, image: 'fried-whole-fish.jpeg', desc: 'Whole fish marinated & deep-fried' },
+        { id: 18, name: 'Grilled Fish Fillet', category: 'fish', price: 35000, image: 'grilled-fish-fillet.jpeg', desc: 'Fish fillet grilled or deep-fried' },
+        { id: 19, name: 'Fish Fingers', category: 'fish', price: 35000, image: 'fish-fingers.jpeg', desc: 'Fish fillet strips, bread crumb fried' },
+        { id: 20, name: 'Special Kibecos', category: 'fish', price: 0, image: 'special-kibecos.jpeg', desc: 'Whole fish tilapia with veggies & matooke' },
+
+        // ----- Curry & Pork -----
+        { id: 21, name: 'Chicken Curry', category: 'curry', price: 35000, image: 'chicken-curry.jpeg', desc: 'Chicken fillet cubes in blended curry sauce' },
+        { id: 22, name: 'Fish Curry', category: 'curry', price: 35000, image: 'fish-curry.jpeg', desc: 'Fish fillet cubes in tasty curry sauce' },
+        { id: 23, name: 'Vegetable Curry', category: 'curry', price: 30000, image: 'vegetable-curry.jpeg', desc: 'Mixture of steamed vegetables in curry sauce' },
+        { id: 24, name: 'Chicken Tikka Masala', category: 'curry', price: 40000, image: 'chicken-tikka-masala.jpeg', desc: 'Chicken cubes in tikka masala sauce' },
+        { id: 25, name: 'Pan Fried Pork', category: 'curry', price: 50000, image: 'pan-fried-pork.jpeg', desc: 'Pan fried pork chops' },
+        { id: 26, name: 'Pork Chops', category: 'curry', price: 50000, image: 'pork-chops.jpeg', desc: 'Grilled pork chops' },
+        { id: 27, name: 'Pork Ribs', category: 'curry', price: 40000, image: 'pork-ribs.jpeg', desc: 'Seasoned pork ribs' },
+
+        // ----- Fast Food -----
+        { id: 28, name: 'Chicken Burger', category: 'fastfood', price: 35000, image: 'chicken-burger.jpeg', desc: 'Chicken burger with lettuce & sauce' },
+        { id: 29, name: 'Beef Burger', category: 'fastfood', price: 35000, image: 'beef-burger.jpeg', desc: 'Beef burger with lettuce & sauce' },
+        { id: 30, name: 'Chapati', category: 'fastfood', price: 3000, image: 'chapati.jpeg', desc: 'Plain chapati' },
+        { id: 31, name: 'Rolex', category: 'fastfood', price: 5000, image: 'rolex.jpeg', desc: 'Chapati with eggs and vegetables' },
+        { id: 32, name: 'Plain Chips', category: 'fastfood', price: 10000, image: 'plain-chips.jpeg', desc: 'Freshly fried chips' },
+        { id: 33, name: 'Chaps', category: 'fastfood', price: 8000, image: 'chaps.jpeg', desc: 'Chapatis with sauce' },
+        { id: 34, name: 'Kebabs', category: 'fastfood', price: 8000, image: 'kebabs.jpeg', desc: 'Grilled beef kebabs' },
+        { id: 35, name: 'Beef Sausage (Pair)', category: 'fastfood', price: 8000, image: 'beef-sausage-pair.jpeg', desc: 'Pair of beef sausages' },
+        { id: 36, name: 'Beef Samosas (3)', category: 'fastfood', price: 8000, image: 'beef-samosas-3.jpeg', desc: '3 beef samosas' },
+        { id: 37, name: 'Chicken Wings', category: 'fastfood', price: 20000, image: 'chicken-wings.jpeg', desc: 'Grilled chicken wings' },
+        { id: 38, name: 'Chicken Chips', category: 'fastfood', price: 30000, image: 'chips-chicken.jpeg', desc: 'Chicken with chips' },
+        { id: 39, name: 'Combo Lusaniya', category: 'fastfood', price: 160000, image: 'combo-lusaniya.jpeg', desc: 'Featuring half whole chicken, liver sausages, fried goat, chips, chapatti, salads & fruits' },
+        { id: 40, name: 'Mini Combo Lusaniya', category: 'fastfood', price: 95000, image: 'mini-combo-lusaniya.jpeg', desc: 'All items in small quantities' },
+
+        // ----- Pizza -----
+        { id: 41, name: 'Chicken Pizza (Large)', category: 'pizza', price: 40000, image: 'chicken-pizza-large.jpeg', desc: 'Large chicken pizza' },
+        { id: 42, name: 'Chicken Pizza (Small)', category: 'pizza', price: 25000, image: 'chicken-pizza-small.jpeg', desc: 'Small chicken pizza' },
+        { id: 43, name: 'Beef Pizza (Large)', category: 'pizza', price: 40000, image: 'beef-pizza-large.jpeg', desc: 'Large beef pizza' },
+        { id: 44, name: 'Beef Pizza (Small)', category: 'pizza', price: 25000, image: 'beef-pizza-small.jpeg', desc: 'Small beef pizza' },
+        { id: 45, name: 'Vegetable Pizza (Large)', category: 'pizza', price: 35000, image: 'vegetable-pizza-large.jpeg', desc: 'Large vegetable pizza' },
+        { id: 46, name: 'Vegetable Pizza (Small)', category: 'pizza', price: 25000, image: 'vegetable-pizza-small.jpeg', desc: 'Small vegetable pizza' },
+        { id: 47, name: 'Tomato Pizza', category: 'pizza', price: 30000, image: 'tomato-pizza.jpeg', desc: 'Tomato & cheese pizza' },
+
+        // ----- Beverages - Tea & Coffee -----
+        { id: 48, name: 'African Tea', category: 'beverages', price: 10000, image: 'african-tea.jpeg', desc: 'Traditional African tea' },
+        { id: 49, name: 'Black Tea', category: 'beverages', price: 5000, image: 'black-tea.jpeg', desc: 'Plain black tea' },
+        { id: 50, name: 'Dawa Tea', category: 'beverages', price: 10000, image: 'dawa-tea.jpeg', desc: 'Spiced dawa tea' },
+        { id: 51, name: 'English Tea', category: 'beverages', price: 12000, image: 'english-tea.jpeg', desc: 'English breakfast tea' },
+        { id: 52, name: 'African Coffee', category: 'beverages', price: 10000, image: 'african-coffee.jpeg', desc: 'Traditional African coffee' },
+        { id: 53, name: 'Black Coffee', category: 'beverages', price: 5000, image: 'black-coffee.jpeg', desc: 'Plain black coffee' },
+        { id: 54, name: 'Cappuccino (Single)', category: 'beverages', price: 8000, image: 'cappuccino-single.jpeg', desc: 'Single cappuccino' },
+        { id: 55, name: 'Cappuccino (Double)', category: 'beverages', price: 10000, image: 'cappuccino-double.jpeg', desc: 'Double cappuccino' },
+        { id: 56, name: 'Cafe Latte', category: 'beverages', price: 10000, image: 'cafe-latte.jpeg', desc: 'Cafe latte' },
+        { id: 57, name: 'Espresso (Single)', category: 'beverages', price: 6000, image: 'espresso-single.jpeg', desc: 'Single espresso' },
+        { id: 58, name: 'Espresso (Double)', category: 'beverages', price: 7000, image: 'espresso-double.jpeg', desc: 'Double espresso' },
+        { id: 59, name: 'Plain Water', category: 'beverages', price: 5000, image: 'plain-water.jpeg', desc: 'Mineral water' },
+
+        // ----- Beverages - Soft Drinks & Juices -----
+        { id: 60, name: 'Soda', category: 'beverages', price: 3000, image: 'soda.jpeg', desc: 'Soft drink' },
+        { id: 61, name: 'Water', category: 'beverages', price: 2000, image: 'water.jpeg', desc: 'Bottled water' },
+        { id: 62, name: 'Passion Fruit Juice', category: 'beverages', price: 10000, image: 'passion-fruit-juice.jpeg', desc: 'Fresh passion fruit juice' },
+        { id: 63, name: 'Melon Juice', category: 'beverages', price: 10000, image: 'melon-juice.jpeg', desc: 'Fresh melon juice' },
+        { id: 64, name: 'Pineapple Juice', category: 'beverages', price: 10000, image: 'pineapple-juice.jpeg', desc: 'Fresh pineapple juice' },
+        { id: 65, name: 'Lemon Juice', category: 'beverages', price: 12000, image: 'lemon-juice.jpeg', desc: 'Fresh lemon juice' },
+        { id: 66, name: 'Mango Juice', category: 'beverages', price: 10000, image: 'mango-juice.jpeg', desc: 'Fresh mango juice' },
+        { id: 67, name: 'Red Juice', category: 'beverages', price: 15000, image: 'red-juice.jpeg', desc: 'Special red juice' },
+        { id: 68, name: 'Avocado Juice', category: 'beverages', price: 10000, image: 'avocado-juice.jpeg', desc: 'Fresh avocado juice' },
+        { id: 69, name: 'Banana Juice', category: 'beverages', price: 10000, image: 'banana-juice.jpeg', desc: 'Fresh banana juice' },
+        { id: 70, name: 'Cocktails', category: 'beverages', price: 10000, image: 'cocktails.jpeg', desc: 'Special cocktails' },
+
+        // ----- Starters -----
+        { id: 71, name: 'Fresh Garden Salad', category: 'starters', price: 20000, image: 'fresh-garden-salad.jpeg', desc: 'A mix of seasonal vegetables' },
+        { id: 72, name: 'Chicken Caesar Salad', category: 'starters', price: 30000, image: 'chicken-caesar-salad.jpeg', desc: 'Full of lettuce, chicken breast cubes, grapes with caesar' },
+        { id: 73, name: 'Chicken & Fruit Salad', category: 'starters', price: 30000, image: 'chicken-fruit-salad.jpeg', desc: 'Tender grilled chicken cubes on a bed of fresh veggies' },
+        { id: 74, name: 'Spanish Omelette', category: 'starters', price: 8000, image: 'spanish-omelette.jpeg', desc: 'Spanish-style omelette' },
+        { id: 75, name: 'Scrambled Eggs', category: 'starters', price: 8000, image: 'scrambled-eggs.jpeg', desc: 'Scrambled eggs' },
+        { id: 76, name: 'Plain Omelette', category: 'starters', price: 5000, image: 'plain-omelette.jpeg', desc: 'Plain omelette' },
+        { id: 77, name: 'Boiled Eggs', category: 'starters', price: 5000, image: 'boiled-eggs.jpeg', desc: 'Boiled eggs' },
+        { id: 78, name: 'Fried Eggs', category: 'starters', price: 5000, image: 'fried-eggs.jpeg', desc: 'Fried eggs' },
     ];
 
     // ============================================================
@@ -235,7 +246,7 @@
             existing.quantity += 1;
         } else {
             const menuItem = menuItems.find(item => item.id === itemId);
-            if (menuItem) {
+            if (menuItem && menuItem.price > 0) {
                 cart.push({ ...menuItem, quantity: 1 });
             }
         }
@@ -306,25 +317,25 @@
         
         container.innerHTML = featured.map(item => `
             <div class="menu-card">
-                <img src="${item.image || 'menu-placeholder.jpg'}" alt="${item.name}" class="menu-card-image" onerror="this.src='garden1.jpeg'" />
+                <img src="${item.image || 'garden1.jpeg'}" alt="${item.name}" class="menu-card-image" onerror="this.src='garden1.jpeg'" />
                 <div class="menu-card-body">
                     <h3 class="menu-card-title">${item.name}</h3>
                     ${item.desc ? `<p class="menu-card-desc">${item.desc}</p>` : ''}
-                    <p class="menu-card-price">${item.price > 0 ? item.price.toLocaleString() + '/=' : 'Call for price'}</p>
-                    ${item.price > 0 ? `<button class="btn-add-cart" onclick="addToCart(${item.id})"><i class="fas fa-cart-plus"></i> Add to Cart</button>` : `<span style="font-size:0.8rem;color:var(--coffee-light);text-align:center;">Call for price</span>`}
+                    <p class="menu-card-price">${item.price.toLocaleString()}/=</p>
+                    <button class="btn-add-cart" onclick="addToCart(${item.id})"><i class="fas fa-cart-plus"></i> Add to Cart</button>
                 </div>
             </div>
         `).join('');
     }
 
     // ============================================================
-    // RENDER FULL MENU (Menu Page)
+    // RENDER FULL MENU (Menu Page - No "All" Category)
     // ============================================================
-    function renderFullMenu(category = 'all') {
+    function renderFullMenu(category = 'goat') {
         const container = document.getElementById('fullMenu');
         if (!container) return;
         
-        let filtered = category === 'all' ? menuItems : menuItems.filter(item => item.category === category);
+        let filtered = menuItems.filter(item => item.category === category);
         filtered = filtered.filter(item => item.price > 0);
         
         if (filtered.length === 0) {
@@ -338,7 +349,7 @@
         
         container.innerHTML = filtered.map(item => `
             <div class="menu-card">
-                <img src="${item.image || 'menu-placeholder.jpg'}" alt="${item.name}" class="menu-card-image" onerror="this.src='garden1.jpeg'" />
+                <img src="${item.image || 'garden1.jpeg'}" alt="${item.name}" class="menu-card-image" onerror="this.src='garden1.jpeg'" />
                 <div class="menu-card-body">
                     <h3 class="menu-card-title">${item.name}</h3>
                     ${item.desc ? `<p class="menu-card-desc">${item.desc}</p>` : ''}
@@ -352,11 +363,18 @@
     }
 
     // ============================================================
-    // CATEGORY TABS
+    // CATEGORY TABS (No "All" Button)
     // ============================================================
     function setupCategoryTabs() {
         const tabs = document.querySelectorAll('.tab-btn');
         if (!tabs.length) return;
+        
+        // Set default active tab to "goat"
+        const defaultTab = document.querySelector('.tab-btn[data-category="goat"]');
+        if (defaultTab) {
+            defaultTab.classList.add('active');
+            renderFullMenu('goat');
+        }
         
         tabs.forEach(tab => {
             tab.addEventListener('click', function() {
